@@ -1,4 +1,4 @@
-module github.com/jamietre/ha-notify
+module github.com/outsharked/ha-notify
 
 go 1.27
 

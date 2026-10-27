@@ -9,10 +9,10 @@ It can also **ask** a quick question and print the answer. The notification gets
 Linux and macOS (amd64 and arm64):
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/jamietre/ha-notify/master/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/outsharked/ha-notify/master/install.sh | sh
 ```
 
-This installs to `~/.local/bin` (override with `INSTALL_DIR=...`; pin a release with `VERSION=v0.1.0`) and verifies the download against the release's SHA-256 checksums. Prefer not to pipe to a shell? Download the binary and `checksums.txt` from the [releases page](https://github.com/jamietre/ha-notify/releases), or build it with Go: `go install github.com/jamietre/ha-notify@latest`.
+This installs to `~/.local/bin` (override with `INSTALL_DIR=...`; pin a release with `VERSION=v0.1.0`) and verifies the download against the release's SHA-256 checksums. Prefer not to pipe to a shell? Download the binary and `checksums.txt` from the [releases page](https://github.com/outsharked/ha-notify/releases), or build it with Go: `go install github.com/outsharked/ha-notify@latest`.
 
 ## Setup
 
@@ -52,7 +52,7 @@ Exit codes: 0 ok, 1 failure, 2 usage error, 3 no answer.
 [`skill/SKILL.md`](skill/SKILL.md) is a Claude Code skill that teaches a session to use ha-notify, but only when you ask ("ping me when you're done"). It also walks you through setup if the tool is not configured yet. Install it with:
 
 ```sh
-mkdir -p ~/.claude/skills/ha-notify && curl -fsSL https://raw.githubusercontent.com/jamietre/ha-notify/master/skill/SKILL.md -o ~/.claude/skills/ha-notify/SKILL.md
+mkdir -p ~/.claude/skills/ha-notify && curl -fsSL https://raw.githubusercontent.com/outsharked/ha-notify/master/skill/SKILL.md -o ~/.claude/skills/ha-notify/SKILL.md
 ```
 
 ## Development

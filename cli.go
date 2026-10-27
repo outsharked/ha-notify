@@ -13,9 +13,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jamietre/ha-notify/internal/config"
-	"github.com/jamietre/ha-notify/internal/ha"
-	"github.com/jamietre/ha-notify/internal/render"
+	"github.com/outsharked/ha-notify/internal/config"
+	"github.com/outsharked/ha-notify/internal/ha"
+	"github.com/outsharked/ha-notify/internal/render"
 )
 
 const usage = `usage:

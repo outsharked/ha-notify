@@ -27,11 +27,11 @@ If the command fails (it prints the reason), say so in chat and carry on. Do not
 Walk the user through it step by step, one step at a time, and confirm each before moving on.
 
 1. **Install the binary** if `command -v ha-notify` finds nothing (Linux and macOS):
-   `curl -fsSL https://raw.githubusercontent.com/jamietre/ha-notify/master/install.sh | sh`
+   `curl -fsSL https://raw.githubusercontent.com/outsharked/ha-notify/master/install.sh | sh`
    It installs to `~/.local/bin`; make sure that is on PATH.
 2. **Create a token** (the user does this in Home Assistant): profile (bottom-left), the **Security** tab, **Long-lived access tokens**, **Create token**, name it `ha-notify`, and copy it. It is shown only once.
 3. **Find the phone's notify service**: in Home Assistant, **Developer tools, Actions**, search `notify.mobile_app_` and note the entry for their phone (for example `notify.mobile_app_my_phone`). Ask the user for it and for their Home Assistant URL (for example `http://homeassistant.local:8123`).
-4. **Write the config.** Download the example, `curl -fsSL https://raw.githubusercontent.com/jamietre/ha-notify/master/ha-notify.example.json -o ~/.config/ha-notify/config.json` (create the directory first), then set `url` and `default.target` in it.
+4. **Write the config.** Download the example, `curl -fsSL https://raw.githubusercontent.com/outsharked/ha-notify/master/ha-notify.example.json -o ~/.config/ha-notify/config.json` (create the directory first), then set `url` and `default.target` in it.
 5. **Store the token without ever seeing it.** Never ask the user to paste the token into the chat. Create the file with a placeholder and lock it down: `printf 'HA_TOKEN=\n' > ~/.config/ha-notify/.env && chmod 600 ~/.config/ha-notify/.env`. Then ask the user to open that file in their own editor, paste the token after `HA_TOKEN=`, and save.
 6. **Verify**: run `ha-notify check`, then `ha-notify send finished --set task="Setup works"` and ask the user to confirm the notification arrived. A 401 from check means the token is wrong or was not saved; have them create a new one.
 

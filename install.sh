@@ -1,10 +1,10 @@
 #!/bin/sh
 # Installs the latest ha-notify release for Linux or macOS.
-#   curl -fsSL https://raw.githubusercontent.com/jamietre/ha-notify/master/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/outsharked/ha-notify/master/install.sh | sh
 # Environment: INSTALL_DIR (default ~/.local/bin), VERSION (default latest, e.g. v0.1.0).
 set -eu
 
-REPO="jamietre/ha-notify"
+REPO="outsharked/ha-notify"
 BIN="ha-notify"
 INSTALL_DIR="${INSTALL_DIR:-$HOME/.local/bin}"
 VERSION="${VERSION:-latest}"
