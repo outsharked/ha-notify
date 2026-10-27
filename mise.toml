@@ -1,0 +1,26 @@
+[tools]
+go = "latest"
+
+[tasks.test]
+description = "Run the unit tests"
+run = "go test ./..."
+
+[tasks.build]
+description = "Cross-compile static binaries into bin/"
+run = """
+set -e
+mkdir -p bin
+for t in linux/amd64 darwin/arm64 windows/amd64; do
+  os=${t%/*}; arch=${t#*/}; ext=""
+  [ "$os" = windows ] && ext=".exe"
+  CGO_ENABLED=0 GOOS=$os GOARCH=$arch go build -trimpath -ldflags "-s -w" -o "bin/ha-notify-$os-$arch$ext" .
+done
+"""
+
+[tasks.install]
+description = "Build for this machine and install to ~/.local/bin"
+run = """
+set -e
+mkdir -p "$HOME/.local/bin"
+CGO_ENABLED=0 go build -trimpath -ldflags "-s -w" -o "$HOME/.local/bin/ha-notify" .
+"""

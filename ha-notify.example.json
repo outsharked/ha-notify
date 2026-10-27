@@ -1,0 +1,19 @@
+{
+  "url": "http://homeassistant.local:8123",
+  "default": {
+    "target": "notify.mobile_app_my_phone",
+    "data": { "channel": "Claude", "group": "claude", "importance": "high", "priority": "high", "ttl": 0, "clickAction": "noAction", "actions": [{ "action": "DISMISS", "title": "✓ Dismiss" }] }
+  },
+  "templates": {
+    "finished": {
+      "title": "Claude is done",
+      "message": "{task}",
+      "data": { "notification_icon": "mdi:check-circle", "tag": "claude-{session}" }
+    },
+    "needs-input": {
+      "title": "Claude needs you",
+      "message": "{task}",
+      "data": { "notification_icon": "mdi:comment-question", "color": "#ffa000", "tag": "claude-{session}" }
+    }
+  }
+}
